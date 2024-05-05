@@ -7,19 +7,19 @@ Configuración del proyecto
 
 Comienza creando un nuevo proyecto de React usando vite:
 
-`npm create vite@latest gemini-chat`
+```npm create vite@latest gemini-chat```
 
 Instala la dependencias del proyecto:
 
-`
+```
 cd gemini-chat
 npm install
-`
+```
 Instala la librería de Google Generative AI:
 
-`
+```
 npm install @google/generative-ai
-`
+```
 
 - Estructura del componente React
 
@@ -33,18 +33,18 @@ Ve a maker suite de google, en la siguiente url: [https://aistudio.google.com/](
 
 Dentro de tu componente Chat principal, importa los módulos necesarios e inicializa la conexión con Gemini:
 
-`
+```
 import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory  } from "@google/generative-ai";
 
 const apiKey = import.meta.env.VITE_API_KEY;  
 const genAI = new GoogleGenerativeAI(apiKey);
-`
+```
 
 - Configuración de la seguridad y la generación
 
 Adapta la configuración de seguridad y generación para que coincida con los objetivos de tu chat:
 
-`
+```
 const safetySettings = [ // Personaliza los umbrales de seguridad
 {
     category: HarmCategory.HARM_CATEGORY_HARASSMENT,
@@ -63,13 +63,13 @@ const model = genAI.getGenerativeModel({
   generationConfig, 
   safetySettings,  
 });
-`
+```
 
 - Diseño de la interfaz de usuario (UI) 
 
 Enfócate en crear una UI clara e intuitiva. Utiliza técnicas de estilo (CSS o una biblioteca de estilo) para mejorar la experiencia del usuario. Este es un formulario sencillo para el chat, que sirve de punto de partida.
 
-`
+```
 <form className="chat-form" onSubmit={handleSubmit}>
   <textarea
     className="chat-form-text "
@@ -81,13 +81,13 @@ Enfócate en crear una UI clara e intuitiva. Utiliza técnicas de estilo (CSS o 
     Generate Text
   </button>
 </form>
-`
+```
 
 - Lógica del chat
 
 Implementa la lógica del chat, manejando los mensajes del usuario y las respuestas de Gemini. El código proporcionado ofrece un excelente punto de partida.
 
-`
+```
 // Inicializar el chat
 const chat = model.startChat({
   history: [],
@@ -134,7 +134,7 @@ const handleSubmit = async (event) => { // Manejar el clic del boton
 const handleSetMessage = (event) => { // Manejar el campo de texto
   setMessage(event.target.value);
 };
-`
+```
 
 - Pruebas y refinamiento
 
